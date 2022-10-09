@@ -14,7 +14,7 @@ for file in `gsutil ls gs://spls/gsp394/tables/*.csv`; do TABLE_NAME=`echo $file
 Task 2:
 ## Replace RANDOM_CITY with dynamic variable
  
-SELECT name FROM `drl.events` WHERE city = 'RANDOM_CITY'
+SELECT name FROM `drl.events` WHERE city = '      '
 
 Task 3:
 SELECT `drl.pilots`.name, `drl.event_pilots`.id FROM `drl.event_pilots` LEFT JOIN `drl.pilots` ON `drl.pilots`.id = `drl.event_pilots`.pilot_id
@@ -23,7 +23,7 @@ Task 4:
  
 ## Replace RANDOM_EVENT with name of event dynamic variable
  
-SELECT `drl.pilots`.name, `drl.events`.name AS event_name FROM `drl.event_pilots` LEFT OUTER JOIN `drl.pilots` ON `drl.pilots`.id = `drl.event_pilots`.pilot_id LEFT OUTER JOIN `drl.events` ON `drl.events`.id = `drl.event_pilots`.event_id WHERE `drl.events`.name = 'RANDOM EVENT'
+SELECT `drl.pilots`.name, `drl.events`.name AS event_name FROM `drl.event_pilots` LEFT OUTER JOIN `drl.pilots` ON `drl.pilots`.id = `drl.event_pilots`.pilot_id LEFT OUTER JOIN `drl.events` ON `drl.events`.id = `drl.event_pilots`.event_id WHERE `drl.events`.name = '            '
 
 Task 5:
  
@@ -70,7 +70,7 @@ time
 FROM `drl.time_trial_cleaned`
 LEFT OUTER JOIN `drl.rounds` ON `drl.time_trial_cleaned`.round_id = `drl.rounds`.id
 LEFT OUTER JOIN `drl.events` ON `drl.events`.id = `drl.rounds`.event_id)
-SELECT MIN(time) as fastest_time FROM cte WHERE event_name = 'Project Manhattan' AND name = 'Time Trials'
+SELECT MIN(time) as fastest_time FROM cte WHERE event_name = '             ' AND name = 'Time Trials'
 
 Task 8:
 ## CHANGE 'AWKBOTS' WITH DYNAMIC VARIABLE
@@ -84,7 +84,7 @@ FROM `drl.heat_standings`
 LEFT JOIN `drl.event_pilots` ON `drl.event_pilots`.id = event_pilot_id
 LEFT JOIN `drl.pilots` ON `drl.pilots`.id = `drl.event_pilots`.pilot_id
 WHERE
-name = 'AWKBOTS'
+name = '         '
 AND
 minimum_time != 'DNF'
 AND
@@ -98,7 +98,7 @@ WITH cte AS
 FROM `drl.heat_standings`
 LEFT JOIN `drl.event_pilots` ON `drl.event_pilots`.id = event_pilot_id
 LEFT JOIN `drl.pilots` ON `drl.pilots`.id = `drl.event_pilots`.pilot_id
-WHERE name = 'AWKBOTS' AND minimum_time != 'DNF' AND minimum_time != '')
+WHERE name = '          ' AND minimum_time != 'DNF' AND minimum_time != '')
 SELECT
 name AS pilot_name,
 heat_id
@@ -131,7 +131,7 @@ WITH cte AS
 FROM `drl.heat_standings`
 LEFT JOIN `drl.event_pilots` ON `drl.event_pilots`.id = event_pilot_id
 LEFT JOIN `drl.pilots` ON `drl.pilots`.id = `drl.event_pilots`.pilot_id
-WHERE name = 'AWKBOTS' AND minimum_time != 'DNF' AND minimum_time != ''),
+WHERE name = '         ' AND minimum_time != 'DNF' AND minimum_time != ''),
 cte2 AS
 (SELECT
 name AS pilot_name,
@@ -166,7 +166,7 @@ from
 drl.heat_standings hs join
 drl.event_pilots ep on hs.event_pilot_id = ep.id join
 drl.pilots p on p.id = ep.pilot_id
-where p.name = "AWKBOTS"
+where p.name = "          "
 and hs.minimum_time not in ("DNF", "TBD") and length(hs.minimum_time) > 4
 and hs.points != 0
 order by heat_id asc
