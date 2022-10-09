@@ -1,7 +1,7 @@
 # common step 
 -1 open cloud shell
 -2 gcloud auth list 
--3 gcloud config list progect 
+-3 gcloud config list project 
 
 Task 1: Import Tables:
 # make the dataset
